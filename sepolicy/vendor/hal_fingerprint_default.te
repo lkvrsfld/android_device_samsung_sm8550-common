@@ -30,3 +30,7 @@ binder_call(hal_fingerprint_default, system_app)
 allow hal_fingerprint_default goodix_fingerprint_device:chr_file rw_file_perms;
 
 allow hal_fingerprint_default self:netlink_socket { bind create read write };
+
+# Allow fingerprint HAL to access tsp device
+allow hal_fingerprint_default vendor_sysfs_touchscreen_writable:dir r_dir_perms;
+allow hal_fingerprint_default vendor_sysfs_touchscreen_writable:file rw_file_perms;
